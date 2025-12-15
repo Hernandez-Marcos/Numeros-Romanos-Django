@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="{% static 'game/styles/home.css' %}">
 </head>
 <body>
-    <h1>NOELIA ES MI OSITA</h1>
+    <div class="container">
+        <h1>Adivina el número romano</h1>
+        <p>{{numero_romano}}</p>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="number" name="respuesta" placeholder="Escribí tu respuesta"></button>
+            <button type="submit">Enviar</button>
+        </form>
+        {{mensaje}}
+        <p>Correctos: {{correctos}}</p>
+        <p>Incorrectos: {{incorrectos}}</p>
+    </div>
 </body>
 </html>
