@@ -6,20 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'game/styles/home.css' %}">
 </head>
 <body>
-    <div class="container">
+    <div class="contenedor">
+        <img src="{% static 'game/images/gatito1.png' %}" class="gatito arriba-izquierda">
+        <img src="{% static 'game/images/gatito2.png' %}" class="gatito arriba-derecha">
+        <img src="{% static 'game/images/gatito3.png' %}" class="gatito abajo-izquierda">
+        <img src="{% static 'game/images/gatito4.png' %}" class="gatito abajo-derecha">
+
         <h1>Adivina el número romano</h1>
-        <p>{{numero_romano}}</p>
+        <p class="romano">{{numero_romano}}</p>
+
         <form action="" method="POST">
             {% csrf_token %}
-            <input type="number" name="respuesta" placeholder="Escribí tu respuesta"></button>
-            <button type="submit">Enviar</button>
+            <input type="number" name="respuesta" placeholder="Escribí tu respuesta" required>
+            <button type="submit">Comprobar</button>
         </form>
-        {{mensaje}}
-        <p>Correctos: {{correctos}}</p>
-        <p>Incorrectos: {{incorrectos}}</p>
+
+        <p class="mensaje">{{mensaje}}</p>
+
+        <div class="contador-respuestas">
+            <p class="correctos">Correctos: {{correctos}}</p>
+            <p class="incorrectos">Incorrectos: {{incorrectos}}</p>
+        </div>
+        
     </div>
 </body>
 </html>

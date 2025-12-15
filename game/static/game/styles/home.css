@@ -1,26 +1,229 @@
-html, body, p {
+html, body {
+    height: 100%;
     margin: 0;
-  }
+    padding: 0;
+}
 
-body {
-    height: 100vh;
+body {display: flex;                /* activa flexbox */
+    justify-content: center;      /* centra horizontalmente */
+    align-items: center;          /* centra verticalmente */
     background-image: url("../images/fresas.jpg");
-    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #f2f2f2;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+
+.contenedor {
+    position: relative;
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 15px;
+    width: 35vw;
+    height: 40vh;
+    margin: auto;
+    box-shadow: 0 0 10px #000;
     display: flex;
+    flex-direction: column;       /* Pone los elementos uno debajo del otro */
+    align-items: center;          /* Centra horizontalmente el contenido */
     justify-content: center;
-    align-items: center;
 }
 
-.container {
+h1 {
+    font-size: 1.5vw;
+    margin: 20px 0;
+}
+
+.romano {
+    font-size: 2vw; /* se ajusta al ancho de la pantalla */
+    margin: 20px 0;
+}
+
+input, button {
+    font-size: 1vw;
+    padding: 1vw;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+.mensaje {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.gatito {
+  position: absolute;
+  width: 16%;
+  height: auto;
+  opacity: 0.9;
+}
+
+.arriba-izquierda { top: 5%; left: 5%; }
+.arriba-derecha { top: 5%; right: 5%; }
+.abajo-izquierda { bottom: 5%; left: 5%; }
+.abajo-derecha { bottom: 5%; right: 5%; }
+
+.contador-respuestas {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around; /* separa los contadores */
     width: 60%;
-    height: 60%;
-    padding: 5%;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 20px;
-    color:white;
-    box-sizing: border-box;
 }
 
-p {
-    display: inline
+.correctos {
+    color: #4CAF50; /* verde */
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.incorrectos {
+    color: #f44336; /* rojo */
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+/* Pantallas medianas (tablets) */
+@media (max-width: 1024px) {
+    .contenedor {
+        width: 70vw;
+        height: auto;
+        padding: clamp(10px, 2vw, 20px);
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .romano {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    input, button {
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        padding: clamp(0.5rem, 2vw, 1rem);
+    }
+
+    .contador-respuestas {
+        width: 80%;
+        flex-direction: row;
+    }
+
+    .gatito {
+        width: clamp(50px, 10%, 80px);
+        position: absolute; /* relativo al contenedor */
+    }
+
+    .arriba-izquierda { top: 5%; left: 2%; }
+    .arriba-derecha { top: 5%; right: 2%; }
+    .abajo-izquierda { bottom: 5%; left: 2%; }
+    .abajo-derecha { bottom: 5%; right: 2%; }
+
+    .contenedor form {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(5px, 1vw, 10px);
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .contenedor {
+        width: 85vw;
+        height: auto;
+        padding: clamp(8px, 3vw, 15px);
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .romano {
+        font-size: clamp(2rem, 6vw, 2.5rem);
+    }
+
+    input, button {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        padding: clamp(5px, 3vw, 8px);
+    }
+
+    .contador-respuestas {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .gatito {
+        width: clamp(60px, 12%, 90px);
+        position: absolute;
+    }
+
+    .arriba-izquierda { top: 5%; left: 2%; }
+    .arriba-derecha { top: 5%; right: 2%; }
+    .abajo-izquierda { bottom: 5%; left: 2%; }
+    .abajo-derecha { bottom: 5%; right: 2%; }
+
+    .contenedor form {
+        width: 85%;
+        gap: clamp(5px, 2vw, 10px);
+    }
+}
+
+/* Pantallas muy pequeñas (pequeños móviles) */
+@media (max-width: 480px) {
+    .contenedor {
+        width: 95vw;
+        height: auto;
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 6vw;
+    }
+
+    .romano {
+        font-size: 8vw;
+    }
+
+    input, button {
+        font-size: 5vw;
+        padding: 4vw;
+    }
+
+    .contador-respuestas {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .gatito {
+        width: 25%;
+        max-width: 75px;
+        position: absolute; /* ya no fixed */
+    }
+
+    /* Ajuste para que no tapen el H1 */
+    .arriba-izquierda { top: 14%; left: 2%; }
+    .arriba-derecha { top: 14%; right: 2%; }
+    .abajo-izquierda { bottom: 5%; left: 2%; }
+    .abajo-derecha { bottom: 5%; right: 2%; }
+
+    .contenedor form {
+        width: 90%;
+        gap: 6px;
+    }
 }
