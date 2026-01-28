@@ -36,7 +36,32 @@
             <p class="correctos">Correctos: {{correctos}}</p>
             <p class="incorrectos">Incorrectos: {{incorrectos}}</p>
         </div>
-        
     </div>
+
+    <details id="menu">
+        <summary>Valores</summary>
+        <ul>
+            <li>I = 1</li>
+            <li>V = 5</li>
+            <li>X = 10</li>
+            <li>L = 50</li>
+            <li>C = 100</li>
+            <li>D = 500</li>
+            <li>M = 1000</li>
+        </ul>
+    </details>
+    <script>
+        const details = document.getElementById("menu");
+      
+        // restaurar estado
+        if (localStorage.getItem("menuOpen") === "true") {
+          details.open = true;
+        }
+      
+        // guardar estado
+        details.addEventListener("toggle", () => {
+          localStorage.setItem("menuOpen", details.open);
+        });
+      </script>      
 </body>
 </html>
