@@ -19,6 +19,8 @@ def home(request):
             request.session["correctos"] = request.session.get("correctos", 0) + 1
         else:
             request.session["mensaje"] = "Incorrecto!"
+            request.session["ultima_respuesta"] = f"tu respuesta fue {respuesta}"
+            request.session["ultimo_romano"] = f"Último romano: {request.session['numero_romano']}"
             request.session["incorrectos"] = request.session.get("incorrectos", 0) + 1
         return redirect("home")
     
@@ -29,12 +31,21 @@ def home(request):
         while nuevo_numero >= valor:
             numero_romano += simbolo
             nuevo_numero -= valor
+    
+    request.session["numero_romano"] = numero_romano
+
+    #request.session[""]
 
     mensaje = request.session.pop("mensaje", "")
+
+    ultima_respuesta = request.session.pop("ultima_respuesta", "")
+    ultimo_romano = request.session.pop("ultimo_romano", "")
 
     context = {
         "numero_romano": numero_romano,
         "mensaje": mensaje,
+        "ultima_respuesta": ultima_respuesta,
+        "ultimo_romano": ultimo_romano,
         "correctos": request.session.get("correctos", 0),
         "incorrectos": request.session.get("incorrectos", 0)
     }

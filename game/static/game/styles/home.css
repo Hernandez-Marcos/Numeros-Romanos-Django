@@ -34,6 +34,10 @@ body {display: flex;                /* activa flexbox */
     justify-content: center;
 }
 
+p {
+    margin-top: 1em
+}
+
 h1 {
     font-size: 1.5vw;
     margin: 20px 0;
@@ -63,6 +67,15 @@ button:hover {
 
 .mensaje {
     margin-top: 15px;
+    font-weight: bold;
+}
+
+.ultimo-romano {
+    font-weight: bold;
+}
+
+.ultima-respuesta {
+    margin-bottom: -1.1em;
     font-weight: bold;
 }
 
