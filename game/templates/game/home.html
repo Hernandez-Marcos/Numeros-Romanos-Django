@@ -8,6 +8,7 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'game/styles/home.css' %}">
+    <link rel="stylesheet" href="{% static 'game/styles/animations.css' %}">
 </head>
 <body>
     <div class="contenedor">
@@ -26,7 +27,7 @@
         </form>
 
         <div class="feedback">
-            <p class="mensaje">{{mensaje}}</p>  
+            <p class="mensaje" id="mensaje">{{mensaje}}</p>  
             <p class="ultimo-romano">{{ultimo_romano}} </p>
             <p class="ultima-respuesta">{{ultima_respuesta}}</p>
         </div>
@@ -62,6 +63,7 @@
         details.addEventListener("toggle", () => {
           localStorage.setItem("menuOpen", details.open);
         });
-      </script>      
+      </script>
+      <script src="{% static 'game/scripts/animations.js' %}"></script>
 </body>
 </html>
