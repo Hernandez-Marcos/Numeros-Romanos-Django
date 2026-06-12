@@ -19,7 +19,7 @@ def home(request):
             request.session["correctos"] = request.session.get("correctos", 0) + 1
         else:
             request.session["mensaje"] = "Incorrecto!"
-            request.session["ultima_respuesta"] = f"tu respuesta fue {respuesta}"
+            request.session["ultima_respuesta"] = f"Tu respuesta fue {respuesta}"
             request.session["ultimo_romano"] = f"Último romano: {request.session['numero_romano']}"
             request.session["incorrectos"] = request.session.get("incorrectos", 0) + 1
         return redirect("home")
